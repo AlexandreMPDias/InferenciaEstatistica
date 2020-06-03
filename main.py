@@ -16,7 +16,7 @@ import src.Q5 as Q5
 	Para rodar apenas a [Questão 1]
 		questionsToRun = [Q1]
 """
-questionsToRun = [Q1] #[Q1, Q2, Q3, Q4, Q5]
+questionsToRun = [Q2] #[Q1, Q2, Q3, Q4, Q5]
 
 def runSingle(question):
 	qName = chalk.cyan(question.name)
