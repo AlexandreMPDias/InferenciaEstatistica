@@ -67,9 +67,22 @@ class Log():
 	def __init__(self, debug_level=LOG_SHOW_INFO):
 		self._debug_level = debug_level
 		self.writer = sys.stdout.write
-		self.identation = 0
+		self.indentation = 0
 		self.beforeEach = "\033[F\033[K\r"
 		self.afterEach = "\n"
+
+	def indentMore(self):
+		self.indentation = self.indentation + 1
+		return self
+
+	def indentLess(self):
+		nextIndentation = self.indentation - 1
+		self.indentation = 0 if nextIndentation <= 0 else nextIndentation
+		return self
+
+	def resetIndent(self):
+		self.indentation = 0
+		return self
 
 	def error(self,strg):
 		"""
@@ -147,7 +160,7 @@ class Log():
 		"""
 			Prints a message on the console.
 		"""
-		indent = "".join(["\t" for i in range(0, self.identation)])
+		indent = "\t" * self.indentation
 		self.writer(self.beforeEach + indent+ str(strg) + self.afterEach)
 
 	def setAppendable(self, appendable):

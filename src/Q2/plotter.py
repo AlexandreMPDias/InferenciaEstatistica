@@ -4,7 +4,6 @@ class Plotter:
 	def __init__(self):
 		self.config = {}
 
-
 	def setName(self, name):
 		self.name = name
 
@@ -18,7 +17,7 @@ class Plotter:
 		plt.plot(self.data)
 
 		for key in self.config:
-			if(key === "legend"):
+			if(key == "legend"):
 				plt.legend(self.config["legend"], loc = "upper left")
 			else:
 				plt[key](self.config[key])
