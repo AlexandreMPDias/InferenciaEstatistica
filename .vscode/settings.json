@@ -7,4 +7,5 @@
 		"**/.DS_Store": true,
 		"**/__pycache__": true
 	},
+	"python.pythonPath": "C:\\Users\\Alexandre\\envs\\modReg\\Scripts\\python.exe",
 }

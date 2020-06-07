@@ -1,19 +1,11 @@
-from src.utils import chalk, loadSeries, loadCSV
-
-A1 = loadSeries("aluno3_A1.csv")
-A2 = loadSeries("aluno3_A2.csv")
-A3 = loadSeries("aluno3_A3.csv")
+from src.utils.estimators import Estimator
+from src.utils import chalk, loadSeries, loadCSV, runFunctions
 
 name = "Questão 3"
 
+def q3():
+	pass
+
 def main():
-	exitCode = 0
-
-	functions = [
-		
-	]
-
-	for function in functions:
-		exitCode = exitCode + runFunction(function)
-
+	exitCode = runFunctions([q3])
 	return exitCode > 0

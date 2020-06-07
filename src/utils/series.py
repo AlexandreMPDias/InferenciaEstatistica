@@ -1,3 +1,4 @@
+import math
 
 class Series:
 	def __init__(self, values = [], name = ""):
@@ -11,6 +12,10 @@ class Series:
 			self.total = self.total + value
 		self.avg = self.total / self.length
 
+		self.var = self.__getVariance()
+
+		self.std_deviation = math.sqrt(self.var)
+
 
 	def apply(self, funcao):
 		values = [funcao(x) for x in self.values]
@@ -19,3 +24,7 @@ class Series:
 			name = self.name
 		)
 
+	def __getVariance(self):
+		diffs = [math.pow(x - self.avg ,2) for x in self.values]
+		n = self.length - 1
+		return sum(diffs)/ n

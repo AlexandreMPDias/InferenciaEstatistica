@@ -1,0 +1,2 @@
+(b) - Type II Error
+Probability of Type 2 Error = 0.01156

@@ -1,11 +1,16 @@
 import pandas as pd
 import numpy as np
 import os
+import time
+
 
 from src.utils.debug import Log, log, chalk, Status
 from src.utils.series import Series
+from src.utils.filer import Filer
+from src.utils.runner import runFunction, runFunctions
 
 loadSeriesCache = {}
+
 
 def loadCSV(filePath: str, **kwargs):
 	return pd.read_csv(os.path.join(".", "data", filePath), sep=",", **kwargs)
@@ -22,23 +27,3 @@ def loadSeries(filePath: str, **kwargs):
 
 	(content, name) = loadSeriesCache[filePath]
 	return Series(values = content, name = name)
-
-def runFunction(func):
-	funcName = func.__name__
-	try:
-		print(f"{chalk.yellow(funcName)} - " + chalk.lightgreen("iniciando", False))
-		func()
-		print(f"{chalk.yellow(funcName)} - " + chalk.lightgreen("finalizada", False))
-		return 0
-	except Exception as err:
-		print(f"{chalk.yellow(funcName)} - " + chalk.lightred("error", False))
-		print(err)
-		print("\n\n")
-		return 1
-
-
-def runFunctions(funcs: list):
-	exitCode = 0
-	for function in funcs:
-		exitCode = exitCode + runFunction(function)
-	return 1 if exitCode > 0 else 0

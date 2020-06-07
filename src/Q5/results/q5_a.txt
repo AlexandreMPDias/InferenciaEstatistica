@@ -1,0 +1,3 @@
+(a) - Test Equal Variance
+For significance = 0.05
+	Null Hypothesis was not rejected
