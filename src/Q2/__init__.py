@@ -52,46 +52,6 @@ def probPlots(verbose = False):
 			if verbose:
 				xlog.success(f"finished - {name}")
 
-def getGroupedData(serie: Series, df = None):
-	catSize = min(max(serie.length/10, 5),50)
-	if df is not None:
-		catSize  = df
-	categories = []
-	for value in serie.values:
-		found = False
-		for i in range(0, catSize):
-			if len(categories)-1 < i:
-				categories.append([])
-			if value >= (i) * serie.max/catSize:
-				if value <= (i + 1) * serie.max/catSize:
-					categories[i].append(value)
-					found = True
-					break
-		if not found:
-			print(value)
-	return categories
-
-# def independenceLevel(serie: Series,estimator: Estimator, numberOfCategories):
-# 	data = getGroupedData(serie, numberOfCategories)
-# 	c2 = []
-# 	ranges = []
-# 	for group in data:
-# 		if len(group) > 0:
-# 			ranges.append((max(group), min(group), group, estimator.getEstimative(group)))
-# 		else:
-# 			ranges.append((-1, -1, [], -1))
-
-# 	for Oi in serie.values:
-# 		for (top, bot, group, Ei) in ranges:
-# 			if Oi in group:
-
-
-# 		# 	if Oi <= top and Oi >= bot:
-# 				parcel = math.pow( Oi - Ei, 2) / Ei
-# 				c2.append(parcel)
-# 				break
-# 	return sum(c2)
-
 def fill(size, content):
 	return [content for i in range(0, size)]
 
@@ -105,13 +65,32 @@ def chiSquaredTest(serie: Series, verbose = False):
 		estimators = solveQuestion1(method)
 		for estimator in estimators:
 			results[method][estimator.density] = []
+
 			for ddof in nChunks:
-				statistic, pvalue = stats.chisquare(
-					serie.values,
-					fill(serie.length, estimator.getEstimative(serie.values)),
-					ddof = ddof
-				)
-				results[method][estimator.density].append((ddof, statistic, pvalue))
+
+				worst_s, worst_p = None, None
+
+				for chunk in np.array_split(serie.values, int(serie.length / 10)):
+					values = serie.values
+
+					values, chunk = chunk, values
+
+					statistic, pvalue = stats.chisquare(
+						values,
+						fill(len(values), estimator.getEstimative(chunk)),
+						ddof = ddof
+					)
+
+					if not math.isnan(pvalue):
+						if worst_p is None:
+							worst_p = pvalue
+							worst_s = statistic
+						elif pvalue > worst_p:
+							worst_p = pvalue
+							worst_s = statistic
+				if worst_p is not None:
+					results[method][estimator.density].append((ddof, worst_s, worst_p))
+
 	return results
 
 			
@@ -125,21 +104,26 @@ def q2_b():
 
 	def fileWrite(file):
 		file.write("Q2: Teste Qui-quadrado\n")
+		file.write("-=" * 30 + "-\n")
 		for (method, m) in results.items():
-			file.write(f"Metodo: {method}\n")
+			file.write(f"Metodo: [{method}]\n")
 			for (density, d) in m.items():
-				file.write(f"\tDensidade: {density}\n")
+				file.write(f"\tDensidade: [{density}]\n")
+				file.write(f"\tGrau de Liberdade\tEstatistica\t Pvalue\n")
 				for ((ddof, statistic, pvalue)) in d:
-					file.write(f"\t\tGrau de Liberdade: {ddof}\n")
-					file.write("\t\t\t- Estatistica de teste cumulativa de Pearson: {:.4f}\n".format(statistic))
-					file.write("\t\t\t- Pvalue: {}\n".format(format(pvalue, ".3e")))
+					s = "{:.4f}".format(statistic)
+					p = format(pvalue, ".3e")
+					file.write("\t{:^17}\t{:^11}\t{:^9}\n".format(str(ddof), s, p))
+					# file.write(f"\t\tGrau de Liberdade: {ddof}\n")
+					# file.write("\t\t\t- Estatistica de teste cumulativa de Pearson: {:.4f}\n".format(statistic))
+					# file.write("\t\t\t- Pvalue: {}\n".format(format(pvalue, ".3e")))
 
 	Filer.writeTXT("ChiSquareTest", fileWrite)
 
 def main():
 	Filer.setLocation("Q2")
 	exitCode = runFunctions([
-		q2_a,
+		# q2_a,
 		q2_b
 	], log = log, catch = False)
 	return exitCode > 0

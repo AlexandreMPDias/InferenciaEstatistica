@@ -1,135 +1,52 @@
 Q2: Teste Qui-quadrado
-Metodo: Likelihood
-	Densidade: Gamma
-		Grau de Liberdade: 1
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 2
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 3
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 5
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 7
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 8
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 10
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-	Densidade: Exponential
-		Grau de Liberdade: 1
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 2
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 3
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 5
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 7
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 8
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 10
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-	Densidade: Log-Normal
-		Grau de Liberdade: 1
-			- Estatistica de teste cumulativa de Pearson: 61884.3376
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 2
-			- Estatistica de teste cumulativa de Pearson: 61884.3376
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 3
-			- Estatistica de teste cumulativa de Pearson: 61884.3376
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 5
-			- Estatistica de teste cumulativa de Pearson: 61884.3376
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 7
-			- Estatistica de teste cumulativa de Pearson: 61884.3376
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 8
-			- Estatistica de teste cumulativa de Pearson: 61884.3376
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 10
-			- Estatistica de teste cumulativa de Pearson: 61884.3376
-			- Pvalue: 0.000e+00
-Metodo: Moment
-	Densidade: Gamma
-		Grau de Liberdade: 1
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 2
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 3
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 5
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 7
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 8
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 10
-			- Estatistica de teste cumulativa de Pearson: 59780.7070
-			- Pvalue: 0.000e+00
-	Densidade: Exponential
-		Grau de Liberdade: 1
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 2
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 3
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 5
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 7
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 8
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 10
-			- Estatistica de teste cumulativa de Pearson: 3725486.4750
-			- Pvalue: 0.000e+00
-	Densidade: Log-Normal
-		Grau de Liberdade: 1
-			- Estatistica de teste cumulativa de Pearson: 164489.9779
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 2
-			- Estatistica de teste cumulativa de Pearson: 164489.9779
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 3
-			- Estatistica de teste cumulativa de Pearson: 164489.9779
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 5
-			- Estatistica de teste cumulativa de Pearson: 164489.9779
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 7
-			- Estatistica de teste cumulativa de Pearson: 164489.9779
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 8
-			- Estatistica de teste cumulativa de Pearson: 164489.9779
-			- Pvalue: 0.000e+00
-		Grau de Liberdade: 10
-			- Estatistica de teste cumulativa de Pearson: 164489.9779
-			- Pvalue: 0.000e+00
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Metodo: [Likelihood]
+	Densidade: [Gamma]
+	Grau de Liberdade	Estatistica	 Pvalue
+	        1        	  7.7751   	4.557e-01
+	        2        	  7.7751   	3.528e-01
+	        3        	  7.7751   	2.550e-01
+	        5        	  7.7751   	1.002e-01
+	        7        	  7.7751   	2.050e-02
+	        8        	  7.7751   	5.297e-03
+	Densidade: [Exponential]
+	Grau de Liberdade	Estatistica	 Pvalue
+	        1        	 4842.7446 	0.000e+00
+	        2        	 4842.7446 	0.000e+00
+	        3        	 4842.7446 	0.000e+00
+	        5        	 4842.7446 	0.000e+00
+	        7        	 4842.7446 	0.000e+00
+	        8        	 4842.7446 	0.000e+00
+	Densidade: [Log-Normal]
+	Grau de Liberdade	Estatistica	 Pvalue
+	        1        	  8.2172   	4.125e-01
+	        2        	  8.2172   	3.138e-01
+	        3        	  8.2172   	2.226e-01
+	        5        	  8.2172   	8.394e-02
+	        7        	  8.2172   	1.643e-02
+	        8        	  8.2172   	4.149e-03
+Metodo: [Moment]
+	Densidade: [Gamma]
+	Grau de Liberdade	Estatistica	 Pvalue
+	        1        	  7.7751   	4.557e-01
+	        2        	  7.7751   	3.528e-01
+	        3        	  7.7751   	2.550e-01
+	        5        	  7.7751   	1.002e-01
+	        7        	  7.7751   	2.050e-02
+	        8        	  7.7751   	5.297e-03
+	Densidade: [Exponential]
+	Grau de Liberdade	Estatistica	 Pvalue
+	        1        	 4842.7446 	0.000e+00
+	        2        	 4842.7446 	0.000e+00
+	        3        	 4842.7446 	0.000e+00
+	        5        	 4842.7446 	0.000e+00
+	        7        	 4842.7446 	0.000e+00
+	        8        	 4842.7446 	0.000e+00
+	Densidade: [Log-Normal]
+	Grau de Liberdade	Estatistica	 Pvalue
+	        1        	  43.5939  	6.788e-07
+	        2        	  43.5939  	2.561e-07
+	        3        	  43.5939  	8.898e-08
+	        5        	  43.5939  	7.791e-09
+	        7        	  43.5939  	3.418e-10
+	        8        	  43.5939  	4.041e-11
