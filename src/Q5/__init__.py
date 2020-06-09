@@ -195,13 +195,12 @@ def q5_b():
 	Filer.writeTXT("q5_b", writeFile)
 
 def q5_c():
-	pass
+	return True
 
-def main():
+def main(debug):
 	Filer.setLocation("Q5")
-	exitCode = runFunctions([
+	return runFunctions([
 		q5_a,
 		q5_b,
 		q5_c
 	], catch = False)
-	return exitCode > 0

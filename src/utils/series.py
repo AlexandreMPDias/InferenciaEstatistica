@@ -12,7 +12,7 @@ class Series:
 			self.total = self.total + value
 		self.avg = self.total / self.length
 
-		self.var = self.__getVariance()
+		self.var = Series.variance(self.values, self.avg)
 
 		self.std_deviation = math.sqrt(self.var)
 
@@ -24,7 +24,8 @@ class Series:
 			name = self.name
 		)
 
-	def __getVariance(self):
-		diffs = [math.pow(x - self.avg ,2) for x in self.values]
-		n = self.length - 1
+	@staticmethod
+	def variance(values, expected):
+		diffs = [math.pow(x - expected ,2) for x in values]
+		n = len(values)
 		return sum(diffs)/ n

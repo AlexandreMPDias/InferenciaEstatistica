@@ -8,6 +8,8 @@ from src.utils.debug import Log, log, chalk, Status
 from src.utils.series import Series
 from src.utils.filer import Filer
 from src.utils.runner import runFunction, runFunctions
+from src.utils.formatter import Format
+
 
 loadSeriesCache = {}
 

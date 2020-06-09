@@ -48,7 +48,7 @@ class Estimator:
 	def getDistributionParams(self, values):
 		self.loadDistributionParams(values)
 		if (self.density == Density.gamma):
-			a = self.distributionParams['a']
+			a = self.distributionParams[self.parameter]
 			loc = self.distributionParams['loc']
 			scale = self.distributionParams['scale']
 			return (a, scale)
@@ -64,18 +64,52 @@ class Estimator:
 			scale = self.distributionParams['scale']
 			return (s, loc,scale)
 
-	def getDensity(self, values): 
+	def getCDF(self, values): 
 		from scipy import stats
+
 		self.loadDistributionParams(values)
-		d = self.distributionParams
+		locScale = dict(
+			loc = self.distributionParams['loc'],
+			scale = self.distributionParams['scale']
+		)
+
 		if (self.density == Density.gamma):
-			return stats.gamma.pdf(values,d['a'], d['loc'], d['scale'])
+			def cdf(x):
+				return stats.gamma.cdf(x, 2, **locScale)
 
 		elif (self.density == Density.exponential):
-			return stats.expon.pdf(values,d['a'], d['loc'], d['scale'])
+			def cdf(x):
+				return stats.expon.cdf(x, **locScale)
 
 		elif (self.density == Density.logNormal):
-			return stats.lognorm.pdf(values,d['s'], d['loc'], d['scale'])
+			sigma = self.getEstimative(values)
+			def cdf(x):
+				return stats.lognorm.cdf(x, sigma, **locScale)
+		return cdf
+
+	def getPPF(self, values): 
+		from scipy import stats
+
+		self.loadDistributionParams(values)
+		locScale = dict(
+			loc = self.distributionParams['loc'],
+			scale = 1/self.distributionParams['scale']
+		)
+
+		if (self.density == Density.gamma):
+			def ppf(x):
+				return stats.gamma.ppf(x, 2, **locScale)
+
+		elif (self.density == Density.exponential):
+			locScale['scale'] = self.distributionParams['scale']
+			def ppf(x):
+				return stats.expon.ppf(x, **locScale)
+
+		elif (self.density == Density.logNormal):
+			sigma = self.getEstimative(values)
+			def ppf(x):
+				return stats.lognorm.ppf(x, sigma, **locScale)
+		return ppf
 
 	def __str__(self):
 		values = dict(
@@ -107,7 +141,6 @@ class Estimation:
 					randomSampleLog = numpy.log(randomSample)
 					return numpy.mean(randomSampleLog ** 2)
 			else:
-
 				def estimatorFormula(randomSample):
 					return numpy.sqrt(2*numpy.log(numpy.mean(randomSample)))
 				
